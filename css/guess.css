@@ -24,13 +24,25 @@ unicode-range: U+20000-2FA1F;
     animation: flash_right 0.5s ease;
 }
 .q{
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    justify-content: center;
+}
+
+#word{
+    background-color: white;
+    border-radius: 20%;
     font-family: 'HanaMin';
     line-height: 1.5;
     font-size: 100px;
+    height: 150px;
+    width: 150px;
     text-align: center;
-    margin: 0px;
+    margin: 10px;
     padding: 0px;
 }
+
 .area{
     margin: 20px;
     width: 300px;
@@ -89,4 +101,9 @@ a:hover{
 }
 body{
     background-color: rgb(255, 250, 221);
+}
+
+#box_kb{
+    display: flex;
+    justify-content: center;
 }
