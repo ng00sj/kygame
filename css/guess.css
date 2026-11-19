@@ -98,6 +98,7 @@ a{
 a:hover{
     color: rgb(255, 250, 221);
     background-color: blue;
+    border-radius: 5px;
 }
 body{
     background-color: rgb(255, 250, 221);
@@ -106,4 +107,18 @@ body{
 #box_kb{
     display: flex;
     justify-content: center;
+}
+
+.word{
+    background-color: white;
+    color: black;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.word2{
+    background-color: white;
+    color: gray;
+    padding: 4px;
+    border-radius: 4px;
 }

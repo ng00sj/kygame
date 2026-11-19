@@ -43,7 +43,7 @@ def extract(音韻地位,項目名稱):
             if 韻目 in 韻目不論調們:
                 return 攝
 
-def make_data(項目名稱: str):
+def make_data(項目名稱: str, 參照: bool):
     df = pd.read_csv('廣韻.csv')
 
     data_word=[]
@@ -80,11 +80,18 @@ def make_data(項目名稱: str):
     length=len(data_word)
     length_一對多=len(data_word)
 
-    for i in tqdm.tqdm(range(length)):
-        if data_ok[i]:
-            data.append([data_word[i],data_value[i]])
-    for i in tqdm.tqdm(range(length_一對多)):
-            data_一對多.append([data_word_一對多[i],*data_value_一對多[i]])
+    if 參照:
+        for i in tqdm.tqdm(range(length)):
+            if data_ok[i]:
+                data.append([data_word[i],list_音韻地位_一對多_字.index(data_word[i]),data_value[i]])
+        for i in tqdm.tqdm(range(length_一對多)):
+                data_一對多.append([data_word_一對多[i],list_音韻地位_一對多_字.index(data_word[i]),*data_value_一對多[i]])
+    else:
+        for i in tqdm.tqdm(range(length)):
+            if data_ok[i]:
+                data.append([data_word[i],data_value[i]])
+        for i in tqdm.tqdm(range(length_一對多)):
+                data_一對多.append([data_word_一對多[i],*data_value_一對多[i]])
 
     with open(f'{項目名稱}.csv', 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
@@ -94,4 +101,16 @@ def make_data(項目名稱: str):
         writer.writerows(data_一對多)
 
 if __name__ == '__main__':
-    make_data("攝")
+    #make_data("音韻地位",False)
+    list_音韻地位_一對多_字=[]
+    with open('音韻地位_一對多.csv', mode='r', encoding='utf-8') as ff:
+        reader = csv.reader(ff)
+        for row in reader:
+            if row:
+                item = row[0]
+                list_音韻地位_一對多_字.append(item)
+    make_data("聲母",True)
+    make_data("韻母",True)
+    make_data("等",True)
+    make_data("攝",True)
+    make_data("聲調",True)
