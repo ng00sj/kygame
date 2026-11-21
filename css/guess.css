@@ -102,6 +102,9 @@ a:hover{
 }
 body{
     background-color: rgb(255, 250, 221);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #box_kb{
@@ -121,4 +124,53 @@ body{
     color: gray;
     padding: 4px;
     border-radius: 4px;
+}
+
+.boxes{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-auto-rows: 200px;
+    row-gap: 0px;
+    text-align: center;
+    align-items: center;
+    font-weight: 800;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 800px;
+}
+
+.boxes div{
+    border-radius: 20px;
+    padding: 20px;
+    margin: 5%;
+    cursor: pointer;
+    background-color: rgb(225, 222, 191);
+    font-family: 'HanaMin';
+}
+
+.boxes div:hover{
+    background-color: rgb(195, 192, 161);
+}
+
+.boxes div p{
+    padding: 0px;
+    margin: 0px;
+    color: black;
+    font-size: 24px;
+}
+
+.boxes div:hover p{
+    color: white;
+}
+
+.boxes div text{
+    color: rgb(255, 250, 221);
+    height: 80px;
+    line-height: 1.0;
+    font-size: 40px;
+    display: block;
+}
+
+.boxes div:hover text{
+    color: rgb(255, 250, 221);
 }

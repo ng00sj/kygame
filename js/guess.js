@@ -221,6 +221,7 @@ const mode = urlParams.get('mode') || "聲母";
 console.log(mode);
 document.title="廣韻猜"+mode;
 dict_make_button.get(mode)?.();
+document.getElementById("gamename").innerText = mode;
 
 //處理遊戲資料
 let csvData=[];
