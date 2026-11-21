@@ -33,6 +33,14 @@ def extract(音韻地位,項目名稱):
             return 音韻地位[2]
         else:
             return 音韻地位[1]
+    if 項目名稱 == "擴充等":
+        count = 0
+        if 音韻地位[1] in "開合":
+            count += 1
+        if 音韻地位[2+count] in "ABC":
+            return 音韻地位[2+count]
+        else
+            return 音韻地位[1+count]
     if 項目名稱 == "音韻地位":
         return 音韻地位
     if 項目名稱 == "韻目不論調":
