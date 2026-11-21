@@ -33,13 +33,19 @@ def extract(音韻地位,項目名稱):
             return 音韻地位[2]
         else:
             return 音韻地位[1]
-    if 項目名稱 == "擴充等":
+    if 項目名稱 == "等類":
         count = 0
         if 音韻地位[1] in "開合":
             count += 1
-        if 音韻地位[2+count] in "ABC":
-            return 音韻地位[2+count]
-        else
+        if 音韻地位[1+count]=="三":
+            if 音韻地位[2+count] in "ABC":
+                return 音韻地位[2+count]
+            else:
+                if 音韻地位[:1] in "精清從心邪章昌常日書船以":
+                    return "A"
+                else:
+                    return "B"
+        else:
             return 音韻地位[1+count]
     if 項目名稱 == "音韻地位":
         return 音韻地位
@@ -109,7 +115,7 @@ def make_data(項目名稱: str, 參照: bool):
         writer.writerows(data_一對多)
 
 if __name__ == '__main__':
-    #make_data("音韻地位",False)
+    make_data("音韻地位",False)
     list_音韻地位_一對多_字=[]
     with open('音韻地位_一對多.csv', mode='r', encoding='utf-8') as ff:
         reader = csv.reader(ff)
@@ -122,3 +128,4 @@ if __name__ == '__main__':
     make_data("等",True)
     make_data("攝",True)
     make_data("聲調",True)
+    make_data("等類",True)

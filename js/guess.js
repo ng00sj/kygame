@@ -1,11 +1,13 @@
 //字典
 const dict_csv = new Map();
 dict_csv.set("等",'data/等.csv');
+dict_csv.set("等類",'data/等類.csv');
 dict_csv.set("攝",'data/攝.csv');
 dict_csv.set("聲母",'data/聲母.csv');
 dict_csv.set("聲調",'data/聲調.csv');
 const dict_text = new Map();
 dict_text.set("等",'等字');
+dict_text.set("等類",'類字');
 dict_text.set("攝",'攝字');
 dict_text.set("聲母",'母字');
 dict_text.set("聲調",'聲字');
@@ -47,6 +49,44 @@ const dict_make_button = new Map([
         //小框
         make_button(["rgb(255, 133, 133)","rgb(255, 255, 100)"],["一","二"],"kb1");
         make_button(["rgb(133, 255, 133)","rgb(133, 133, 255)"],["三","四"],"kb2");
+    }],
+    ["等類", ()=>{
+        //前置
+        let w = window.innerWidth;
+        let h = window.innerHeight;
+        //做按鈕函式
+        function make_button(color,list,container){
+            list.forEach((char,i)=>{
+                function func1(){press_button(char)}
+                const p=document.createElement("button");
+                p.innerText=char;
+                p.addEventListener("click",func1);
+                p.style="background-color:"+color[i]+";";
+                p.id="button_"+char;
+                document.getElementById(container).appendChild(p);
+            });
+        }
+        //大框
+        if (w>h){
+            list=[[1,[1,2]]];
+        }else{
+            list=[[1,[1,2]]];
+        }
+        list.forEach(([i,jj])=>{
+            const p=document.createElement("div");
+            p.classList.add("area");
+            p.id="area_"+i;
+            document.getElementById("box_kb").appendChild(p);
+            jj.forEach(j=>{
+                const pp=document.createElement("div");
+                pp.classList.add("kb");
+                pp.id="kb"+j;
+                document.getElementById("area_"+i).appendChild(pp);
+            });
+        });
+        //小框
+        make_button(["rgb(255, 133, 133)","rgb(100, 100, 200)","rgb(133, 133, 255)"],["一","二","四"],"kb1");
+        make_button(["rgb(255, 255, 100)","rgb(100, 200, 100)","rgb(133, 255, 133)"],["C","B","A"],"kb2");
     }],
     ["攝", ()=>{
         //前置
