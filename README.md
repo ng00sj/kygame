@@ -7,6 +7,7 @@
 * [廣韻猜聲母](https://ng00sj.github.io/kygame/guess?mode=聲母)：猜字的廣韻聲母（三十六字母）。
 * [廣韻猜聲調](https://ng00sj.github.io/kygame/guess?mode=聲調)：猜字的聲調（中古四聲）。
 * [廣韻猜等](https://ng00sj.github.io/kygame/guess?mode=等)：猜字的等（一至四等）。
+* [廣韻猜等類](https://ng00sj.github.io/kygame/guess?mode=等類)：猜字的等，其中三等韻依性質分成三類（ABC），共六類。
 * [廣韻猜攝](https://ng00sj.github.io/kygame/guess?mode=攝)：猜字的攝（韻圖十六攝）。
 
 ## 玩法
